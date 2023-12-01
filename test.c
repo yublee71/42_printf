@@ -2,5 +2,5 @@
 
 int main(void)
 {
-	ft_printf("s %c", 600);
+	ft_printf("s %c %d", 600, 200);
 }

@@ -19,11 +19,11 @@ void	ft_intprint(char c, int i)
 	else if (c == 'i')
 		ft_putnbr_base(i, "0123456789");
 	else if (c == 'u')
-		ft_putdec(i);
+		ft_putnbr_base((unsigned int)i, "0123456789");
 	else if (c == 'x')
-		ft_puthexlow(i);
+		ft_putnbr_base(i, "0123456789abcdef");
 	else if (c == 'X')
-		ft_puthexup(i);
+		ft_putnbr_base(i, "0123456789ABCDEF");
 	else if (c == 'c')
 		write(1, &i, 1);
 	else if (c == '%')
@@ -38,8 +38,9 @@ void	ft_strprint(char c, char *str)
 
 void	ft_ptrprint(char c, void *ptr)
 {
-	if (c == 'p')
-		ft_putaddress(ptr);
+	if (c == 'p'&& ptr)
+		return ;
+		//ft_putaddress(ptr);
 }
 
 int	ft_printf(const char *format, ...)
