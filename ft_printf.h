@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-int ft_printf(const char *format, ...);
+int		ft_printf(const char *format, ...);
+void	ft_putnbr_base(int nbr, char *base);
 
 #endif
