@@ -6,7 +6,7 @@
 /*   By: yublee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:42:38 by yublee            #+#    #+#             */
-/*   Updated: 2023/12/02 18:11:29 by yublee           ###   ########.fr       */
+/*   Updated: 2023/12/02 18:32:40 by yublee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ void	ft_putnbr_base(int nbr, char *base)
 			write(1, base + nbr, 1);
 	}
 }
-
-#include <stdio.h>
 
 void	ft_putptr_base(long unsigned int nbr, char *base)
 {
