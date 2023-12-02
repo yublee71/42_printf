@@ -1,19 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_put_base.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yublee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:42:38 by yublee            #+#    #+#             */
-/*   Updated: 2023/10/19 16:40:05 by yublee           ###   ########.fr       */
+/*   Updated: 2023/12/02 18:11:29 by yublee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <unistd.h>
-#include <limits.h>
-#define MINUS "-"
+#include "ft_printf.h"
 
 int	base_is(char *base)
 {
@@ -48,7 +45,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	{
 		if (nbr < 0)
 		{
-			write(1, &MINUS, 1);
+			write(1, "-", 1);
 			if (nbr <= -b)
 				ft_putnbr_base(-(nbr / b), base);
 			ft_putnbr_base(-(nbr % b), base);
@@ -62,18 +59,22 @@ void	ft_putnbr_base(int nbr, char *base)
 			write(1, base + nbr, 1);
 	}
 }
-/*
-int	main(void)
+
+#include <stdio.h>
+
+void	ft_putptr_base(long unsigned int nbr, char *base)
 {
-	char *str = "0123456789";
-	for(int	i = -100; i < 100; i++)
+	long unsigned int	b;
+
+	b = base_is(base);
+	if (b)
 	{
-		ft_putnbr_base(i, str);
-		printf("\n");
+		if (nbr >= b)
+		{
+			ft_putptr_base(nbr / b, base);
+			ft_putptr_base(nbr % b, base);
+		}
+		else
+			write(1, base + nbr, 1);
 	}
-	ft_putnbr_base(INT_MIN, str);
-	printf("\n");
-	ft_putnbr_base(INT_MAX, str);
-	printf("\n");
 }
-*/

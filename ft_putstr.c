@@ -6,21 +6,14 @@
 /*   By: yublee <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 13:39:59 by yublee            #+#    #+#             */
-/*   Updated: 2023/10/16 13:42:22 by yublee           ###   ########.fr       */
+/*   Updated: 2023/12/02 17:05:45 by yublee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "ft_printf.h"
 
 void	ft_putstr(char *str)
 {
 	while (*str)
 		write(1, str++, 1);
 }
-/*
-int	main(void)
-{
-	char *str = "abc";
-	ft_putstr(str);
-}
-*/
