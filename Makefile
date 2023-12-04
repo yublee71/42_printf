@@ -26,8 +26,7 @@ NAME = libftprintf.a
 
 SRC = ft_printf.c \
 	  ft_print_int.c \
-	  ft_print_unsignedint.c \
-	  ft_print_ptr.c \
+	  ft_print_unsigned.c \
 	  ft_print_str.c \
 
 OBJ = $(SRC:.c=.o)

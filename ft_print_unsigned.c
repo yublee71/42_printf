@@ -36,7 +36,7 @@ int	base_is(char *base)
 	return (i);
 }
 
-void	ft_putnbr_base(unsigned int nbr, char *base)
+void	ft_putunsignednbr_base(unsigned int nbr, char *base)
 {
 	unsigned int	b;
 
@@ -45,10 +45,10 @@ void	ft_putnbr_base(unsigned int nbr, char *base)
 	{
 		if (nbr >= b)
 		{
-			ft_putnbr_base(nbr / b, base);
-			ft_putnbr_base(nbr % b, base);
+			ft_putunsignednbr_base(nbr / b, base);
+			ft_putunsignednbr_base(nbr % b, base);
 		}
-		if (nbr < b || nbr == 0)
+		else
 			ft_write(*(base + nbr));
 	}
 }
@@ -56,10 +56,29 @@ void	ft_putnbr_base(unsigned int nbr, char *base)
 void	ft_print_unsignedint(char c, unsigned int i)
 {
 	if (c == 'u')
-		ft_putnbr_base(i, "0123456789");
+		ft_putunsignednbr_base(i, "0123456789");
 	else if (c == 'x')
-		ft_putnbr_base(i, "0123456789abcdef");
+		ft_putunsignednbr_base(i, "0123456789abcdef");
 	else if (c == 'X')
-		ft_putnbr_base(i, "0123456789ABCDEF");
+		ft_putunsignednbr_base(i, "0123456789ABCDEF");
 
+}
+
+void	ft_print_ptr(void *ptr)
+{
+	if (!ptr)
+	{
+		ft_write('(');
+		ft_write('n');
+		ft_write('i');
+		ft_write('l');
+		ft_write(')');
+		return ;
+	}
+	else
+	{
+		ft_write('0');
+		ft_write('x');
+		ft_putunsignednbr_base((long unsigned int)ptr, "0123456789abcdef");
+	}
 }
