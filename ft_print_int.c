@@ -44,4 +44,6 @@ void	ft_print_int(char c, int i)
 		ft_write(i);
 	else if (c == '%')
 		ft_write(i);
+	else
+		return ;
 }

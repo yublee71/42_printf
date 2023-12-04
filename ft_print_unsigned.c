@@ -36,9 +36,9 @@ int	base_is(char *base)
 	return (i);
 }
 
-void	ft_putunsignednbr_base(unsigned int nbr, char *base)
+void	ft_putunsignednbr_base(long unsigned int nbr, char *base)
 {
-	unsigned int	b;
+	long unsigned int	b;
 
 	b = base_is(base);
 	if (b)
@@ -61,7 +61,8 @@ void	ft_print_unsignedint(char c, unsigned int i)
 		ft_putunsignednbr_base(i, "0123456789abcdef");
 	else if (c == 'X')
 		ft_putunsignednbr_base(i, "0123456789ABCDEF");
-
+	else
+		return ;
 }
 
 void	ft_print_ptr(void *ptr)

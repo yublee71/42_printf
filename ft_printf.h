@@ -25,9 +25,8 @@ void	ft_print_unsignedint(char c, unsigned int i);
 void	ft_print_str(char *str);
 void	ft_print_ptr(void *ptr);
 void	ft_putnbr(int nb);
-int	base_is(char *base);
-void	ft_putnbr_base(unsigned int nbr, char *base);
-void	ft_putptr_base(long unsigned int nbr, char *base);
+int		base_is(char *base);
+void	ft_putunsignednbr_base(long unsigned int nbr, char *base);
 void	ft_putstr(char *str);
 
 #endif
