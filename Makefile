@@ -6,7 +6,7 @@
 #    By: yublee <yublee@student.42london.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/18 14:44:19 by yublee            #+#    #+#              #
-#    Updated: 2023/12/04 20:23:16 by yublee           ###   ########.fr        #
+#    Updated: 2023/12/04 20:41:05 by yublee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,22 +31,29 @@ SRC = ft_printf.c \
 
 OBJ = $(SRC:.c=.o)
 
+LIBFT_DIR = ./libft
+
+LIBFT_LIB = ./libft/libft.a
+
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	make -C ./libft
-	cp ./libft/libft.a $(NAME)
-	make -C ./libft fclean
-	$(AR) $(ARFLAGS) $(NAME) $^
+$(NAME): $(OBJ) $(LIBFT_LIB)
+	cp $(LIBFT_LIB) $@
+	$(AR) $(ARFLAGS) $@ $(OBJ)
+
+$(LIBFT_LIB):
+	make -C $(LIBFT_DIR)
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
 	$(RM) $(RMFLAGS) $(OBJ)
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	$(RM) $(RMFLAGS) $(NAME)
+	$(RM) $(RMFLAGS) $(LIBFT_LIB)
 
 re: fclean all
 
