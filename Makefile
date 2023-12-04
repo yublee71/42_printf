@@ -6,7 +6,7 @@
 #    By: yublee <yublee@student.42london.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/18 14:44:19 by yublee            #+#    #+#              #
-#    Updated: 2023/12/04 17:06:06 by yublee           ###   ########.fr        #
+#    Updated: 2023/12/04 20:23:16 by yublee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,9 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
+	make -C ./libft
+	cp ./libft/libft.a $(NAME)
+	make -C ./libft fclean
 	$(AR) $(ARFLAGS) $(NAME) $^
 
 %.o: %.c
@@ -47,4 +50,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+.PHONY: all clean fclean re
