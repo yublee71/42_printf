@@ -15,5 +15,23 @@
 void	ft_putstr(char *str)
 {
 	while (*str)
-		write(1, str++, 1);
+	{
+		ft_write(*str);
+		str++;
+	}
+}
+
+void	ft_print_str(char *str)
+{
+	if (!str)
+	{
+		ft_write('(');
+		ft_write('n');
+		ft_write('u');
+		ft_write('l');
+		ft_write('l');
+		ft_write(')');
+		return ;
+	}
+	ft_putstr(str);
 }

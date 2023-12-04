@@ -36,43 +36,30 @@ int	base_is(char *base)
 	return (i);
 }
 
-void	ft_putnbr_base(int nbr, char *base)
+void	ft_putnbr_base(unsigned int nbr, char *base)
 {
-	int	b;
+	unsigned int	b;
 
 	b = base_is(base);
 	if (b)
 	{
-		if (nbr < 0)
-		{
-			write(1, "-", 1);
-			if (nbr <= -b)
-				ft_putnbr_base(-(nbr / b), base);
-			ft_putnbr_base(-(nbr % b), base);
-		}
 		if (nbr >= b)
 		{
 			ft_putnbr_base(nbr / b, base);
 			ft_putnbr_base(nbr % b, base);
 		}
-		if (nbr < b && nbr >= 0)
-			write(1, base + nbr, 1);
+		if (nbr < b || nbr == 0)
+			ft_write(*(base + nbr));
 	}
 }
 
-void	ft_putptr_base(long unsigned int nbr, char *base)
+void	ft_print_unsignedint(char c, unsigned int i)
 {
-	long unsigned int	b;
+	if (c == 'u')
+		ft_putnbr_base(i, "0123456789");
+	else if (c == 'x')
+		ft_putnbr_base(i, "0123456789abcdef");
+	else if (c == 'X')
+		ft_putnbr_base(i, "0123456789ABCDEF");
 
-	b = base_is(base);
-	if (b)
-	{
-		if (nbr >= b)
-		{
-			ft_putptr_base(nbr / b, base);
-			ft_putptr_base(nbr % b, base);
-		}
-		else
-			write(1, base + nbr, 1);
-	}
 }

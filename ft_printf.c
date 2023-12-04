@@ -24,63 +24,50 @@
  * %% 37 Prints a percent sign
  */
 
-void	ft_intprint(char c, int i)
+size_t	ft_write(char c)
 {
-	if (c == 'd' || c == 'i')
-		ft_putnbr_base(i, "0123456789");
-	else if (c == 'u')
-		ft_putnbr_base((unsigned int)i, "0123456789");
-	else if (c == 'x')
-		ft_putnbr_base(i, "0123456789abcdef");
-	else if (c == 'X')
-		ft_putnbr_base(i, "0123456789ABCDEF");
-	else if (c == 'c')
-		write(1, &i, 1);
-	else if (c == '%')
-		write(1, &i, 1);
+	static size_t	count;
+
+	write(1, &c, 1);
+	count++;
+	return (count);
 }
 
-void	ft_strprint(char *str)
+void	ft_whattype(char type, va_list args)
 {
-	ft_putstr(str);
-}
-
-void	ft_ptrprint(void *ptr)
-{
-	write(1, "0x", 2);
-	ft_putptr_base((long unsigned int)ptr, "0123456789abcdef");
+	if (type == 'd' || type == 'i' || type == 'c')
+		ft_print_int(type, va_arg(args, int));
+	else if (type == 'u' || type == 'x' || type == 'X')
+		ft_print_unsignedint(type, va_arg(args, unsigned int));
+	else if (type == 's')
+		ft_print_str(va_arg(args, char *));
+	else if (type == 'p')
+		ft_print_ptr(va_arg(args, void *));
+	else if (type == '%')
+		ft_write(type);
+	else
+		return ;
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list		args;
-	size_t		i;
 	char		type;
+	size_t		i;
 
 	va_start(args, format);
 	i = 0;
-	while (format[i] && format[i + 1])
+	while (format[i])
 	{
 		if (format[i] != '%')
-			write(1, &format[i], 1);
-		else
+			ft_write(format[i]);
+		else if (format[++i])
 		{
-			type = format[i + 1];
-			if (type == 'd' || type == 'i' || type == 'u'
-				|| type == 'x' || type == 'X' || type == 'c')
-				ft_intprint(type, va_arg(args, int));
-			else if (type == 's')
-				ft_strprint(va_arg(args, char *));
-			else if (type == 'p')
-				ft_ptrprint(va_arg(args, void *));
-			else if (type == '%')
-				write(1, &type, 1);
-			else
-				return (1);
-			i++;
+			type = format[i];
+			ft_whattype(type, args);
 		}
 		i++;
 	}
 	va_end(args);
-	return (0);
+	return (ft_write(0) - 1);
 }

@@ -25,8 +25,10 @@ ARFLAGS = rcs
 NAME = libftprintf.a
 
 SRC = ft_printf.c \
-	  ft_put_base.c \
-	  ft_putstr.c \
+	  ft_print_int.c \
+	  ft_print_unsignedint.c \
+	  ft_print_ptr.c \
+	  ft_print_str.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -39,7 +41,7 @@ $(NAME): $(OBJ)
 	$(CC) -c $(CFLAGS) $< -o $@
 
 clean:
-	$(RM) $(RMFLAGS) $(OBJ) $(BONUS_OBJ)
+	$(RM) $(RMFLAGS) $(OBJ)
 
 fclean: clean
 	$(RM) $(RMFLAGS) $(NAME)

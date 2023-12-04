@@ -15,10 +15,18 @@
 
 int main(void)
 {
-	char *ptr;
+//	char *ptr;
    
-	ptr = "abc";
+//	ptr = "abc";
 //	printf("%lu\n",(long unsigned int)ptr);
-	printf("test strings: \n char is \"%c\" \n string is \"%s\" \n decimal is \"%d\" \n integer is \"%i\" \n unsigned decimal \"%u\" \n low hexa decimal \"%x\" \n up hexa decimal \"%X\" \n void pointer \"%p\" \n percent sign \"%%\"\n", 350, "abcdefg", 990, 990, 990, 990, 990, ptr);
-	ft_printf("my test strings: \n char is \"%c\" \n string is \"%s\" \n decimal is \"%d\" \n integer is \"%i\" \n unsigned decimal \"%u\" \n low hexa decimal \"%x\" \n up hexa decimal \"%X\" \n void pointer \"%p\" \n percent sign \"%%\"\n", 350, "abcdefg", 990, 990, 990, 990, 990, ptr);
+//	printf("%i\n",printf("test strings: \n char is \"%c\" \n string is \"%s\" \n decimal is \"%d\" \n integer is \"%i\" \n unsigned decimal \"%u\" \n low hexa decimal \"%x\" \n up hexa decimal \"%X\" \n void pointer \"%p\" \n percent sign \"%%\"\n", 350, "abcdefg", 990, 990, 990, 990, 990, ptr));
+//	printf("%i\n", ft_printf("my test strings: \n char is \"%c\" \n string is \"%s\" \n decimal is \"%d\" \n integer is \"%i\" \n unsigned decimal \"%u\" \n low hexa decimal \"%x\" \n up hexa decimal \"%X\" \n void pointer \"%p\" \n percent sign \"%%\"\n", 350, "abcdefg", 990, 990, 990, 990, 990, ptr));
+//	printf("return is: %i\n", printf("test strings: \n char is \"%c\" \n", 350));
+//	printf("return is: %i\n", ft_printf("test strings: \n char is \"%c\" \n", 350));
+//	printf("return is: %i\n", printf("test strings: \n hex is \"%x\" \n", -1));
+//	printf("return is: %i\n", ft_printf("test strings: \n hex is \"%x\" \n", -1));
+//	printf("return is: %u\n", printf("test strings: \n u is \"%u\" \n", 0));
+//	printf("return is: %u\n", ft_printf("test strings: \n u is \"%u\" \n", 0));
+	printf("return is: %d\n", printf("test strings: \n u is \"%p\" \n", NULL));
+	printf("return is: %d\n", ft_printf("test strings: \n u is \"%p\" \n", 0));
 }
