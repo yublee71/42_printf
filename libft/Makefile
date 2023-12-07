@@ -6,13 +6,13 @@
 #    By: yublee <yublee@student.42london.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/18 14:44:19 by yublee            #+#    #+#              #
-#    Updated: 2023/12/04 20:01:38 by yublee           ###   ########.fr        #
+#    Updated: 2023/12/07 17:16:30 by yublee           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I
 
 RM = rm
 
@@ -21,6 +21,8 @@ RMFLAGS = -fv
 AR = ar
 
 ARFLAGS = rcs
+
+INCLUDE = ../include
 
 NAME = libft.a
 
@@ -88,7 +90,7 @@ bonus: .make_bonus
 	touch $@
 
 %.o: %.c
-	$(CC) -c $(CFLAGS) $< -o $@
+	$(CC) -c $(CFLAGS) $(INCLUDE) $< -o $@
 
 clean:
 	$(RM) $(RMFLAGS) $(OBJ) $(BONUS_OBJ)
