@@ -6,7 +6,7 @@
 /*   By: yublee <yublee@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:04:43 by yublee            #+#    #+#             */
-/*   Updated: 2023/12/07 16:49:02 by yublee           ###   ########.fr       */
+/*   Updated: 2023/12/07 17:23:12 by yublee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define LIBFTPRINTF_H
 
 # include <stdarg.h>
-# include <unistd.h>
 # include "libft.h"
 
 int		ft_printf(const char *format, ...);
