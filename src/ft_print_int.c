@@ -6,11 +6,11 @@
 /*   By: yublee <yublee@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:04:53 by yublee            #+#    #+#             */
-/*   Updated: 2023/12/07 15:24:34 by yublee           ###   ########.fr       */
+/*   Updated: 2023/12/07 16:25:58 by yublee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 void	ft_putnbr(int nb)
 {

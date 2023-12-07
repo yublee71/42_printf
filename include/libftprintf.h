@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   libftprintf.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yublee <yublee@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:04:43 by yublee            #+#    #+#             */
-/*   Updated: 2023/12/07 15:41:18 by yublee           ###   ########.fr       */
+/*   Updated: 2023/12/07 16:49:02 by yublee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
 # include <stdarg.h>
 # include <unistd.h>
-# include <stdlib.h>
+# include "libft.h"
 
 int		ft_printf(const char *format, ...);
 void	ft_whattype(char type, va_list args);

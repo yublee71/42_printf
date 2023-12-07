@@ -6,11 +6,11 @@
 /*   By: yublee <yublee@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:05:13 by yublee            #+#    #+#             */
-/*   Updated: 2023/12/07 15:31:26 by yublee           ###   ########.fr       */
+/*   Updated: 2023/12/07 16:26:12 by yublee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 int	base_is(char *base)
 {
@@ -69,7 +69,7 @@ void	ft_print_ptr(void *ptr)
 {
 	if (!ptr)
 	{
-		ft_print_str("(nill)");
+		ft_print_str("(nil)");
 		return ;
 	}
 	else
