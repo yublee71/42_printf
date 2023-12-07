@@ -6,7 +6,7 @@
 /*   By: yublee <yublee@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:04:53 by yublee            #+#    #+#             */
-/*   Updated: 2023/12/04 17:04:58 by yublee           ###   ########.fr       */
+/*   Updated: 2023/12/07 15:24:34 by yublee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_putnbr(int nb)
 	temp = '0';
 	if (nb < 0)
 	{
-		ft_write('-');
+		ft_write('-', 1);
 		if (nb <= -10)
 			ft_putnbr(-(nb / 10));
 		ft_putnbr(-(nb % 10));
@@ -32,7 +32,7 @@ void	ft_putnbr(int nb)
 	if (nb < 10 && nb >= 0)
 	{
 		temp += nb;
-		ft_write(temp);
+		ft_write(temp, 1);
 	}
 }
 
@@ -41,9 +41,9 @@ void	ft_print_int(char c, int i)
 	if (c == 'd' || c == 'i')
 		ft_putnbr(i);
 	else if (c == 'c')
-		ft_write(i);
+		ft_write(i, 1);
 	else if (c == '%')
-		ft_write(i);
+		ft_write(i, 1);
 	else
 		return ;
 }

@@ -6,7 +6,7 @@
 /*   By: yublee <yublee@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:05:03 by yublee            #+#    #+#             */
-/*   Updated: 2023/12/04 17:05:04 by yublee           ###   ########.fr       */
+/*   Updated: 2023/12/07 15:32:25 by yublee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_putstr(char *str)
 {
 	while (*str)
 	{
-		ft_write(*str);
+		ft_write(*str, 1);
 		str++;
 	}
 }
@@ -25,12 +25,7 @@ void	ft_print_str(char *str)
 {
 	if (!str)
 	{
-		ft_write('(');
-		ft_write('n');
-		ft_write('u');
-		ft_write('l');
-		ft_write('l');
-		ft_write(')');
+		ft_putstr("(null)");
 		return ;
 	}
 	ft_putstr(str);

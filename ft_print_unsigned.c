@@ -6,7 +6,7 @@
 /*   By: yublee <yublee@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:05:13 by yublee            #+#    #+#             */
-/*   Updated: 2023/12/04 17:05:15 by yublee           ###   ########.fr       */
+/*   Updated: 2023/12/07 15:31:26 by yublee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_putunsignednbr_base(long unsigned int nbr, char *base)
 			ft_putunsignednbr_base(nbr % b, base);
 		}
 		else
-			ft_write(*(base + nbr));
+			ft_write(*(base + nbr), 1);
 	}
 }
 
@@ -69,17 +69,12 @@ void	ft_print_ptr(void *ptr)
 {
 	if (!ptr)
 	{
-		ft_write('(');
-		ft_write('n');
-		ft_write('i');
-		ft_write('l');
-		ft_write(')');
+		ft_print_str("(nill)");
 		return ;
 	}
 	else
 	{
-		ft_write('0');
-		ft_write('x');
+		ft_print_str("0x");
 		ft_putunsignednbr_base((long unsigned int)ptr, "0123456789abcdef");
 	}
 }

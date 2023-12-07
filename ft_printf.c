@@ -6,7 +6,7 @@
 /*   By: yublee <yublee@student.42london.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:05:29 by yublee            #+#    #+#             */
-/*   Updated: 2023/12/04 17:05:45 by yublee           ###   ########.fr       */
+/*   Updated: 2023/12/07 15:23:59 by yublee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,23 @@
  * %% 37 Prints a percent sign
  */
 
-size_t	ft_write(char c)
+size_t	ft_write(char c, int n)
 {
-	static size_t	count;
+	static size_t	count = 0;
+	size_t			count_cpy;
 
-	write(1, &c, 1);
-	count++;
-	return (count);
+	if (n == 0)
+	{
+		count_cpy = count;
+		count = 0;
+		return (count_cpy);
+	}
+	else
+	{
+		write(1, &c, 1);
+		count++;
+		return (count);
+	}
 }
 
 void	ft_whattype(char type, va_list args)
@@ -44,7 +54,7 @@ void	ft_whattype(char type, va_list args)
 	else if (type == 'p')
 		ft_print_ptr(va_arg(args, void *));
 	else if (type == '%')
-		ft_write(type);
+		ft_write(type, 1);
 	else
 		return ;
 }
@@ -60,7 +70,7 @@ int	ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] != '%')
-			ft_write(format[i]);
+			ft_write(format[i], 1);
 		else if (format[++i])
 		{
 			type = format[i];
@@ -69,5 +79,5 @@ int	ft_printf(const char *format, ...)
 		i++;
 	}
 	va_end(args);
-	return (ft_write(0) - 1);
+	return (ft_write(0, 0));
 }
